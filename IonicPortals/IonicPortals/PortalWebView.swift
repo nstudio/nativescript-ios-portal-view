@@ -3,7 +3,7 @@ import WebKit
 import UIKit
 import Capacitor
 
-public class PortalWebView: UIView {
+@objcMembers public class PortalWebView: UIView {
     
     var webView: InternalCapWebView?
     var portal: Portal?

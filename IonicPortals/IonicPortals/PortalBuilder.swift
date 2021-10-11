@@ -2,7 +2,7 @@ import Foundation
 
 public typealias OnPortalBuilderComplete = (_ portal : Portal) -> Void
 
-public class PortalBuilder {
+@objcMembers public class PortalBuilder: NSObject {
     
     // MARK: - Static Properties
 
