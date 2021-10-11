@@ -5,7 +5,7 @@ import Capacitor
 
 @objcMembers public class PortalWebView: UIView {
     
-    public var webView: InternalCapWebView?
+    var webView: InternalCapWebView?
     var portal: Portal?
     public var bridge: CAPBridgeProtocol?
     
@@ -33,26 +33,30 @@ import Capacitor
             addSubview(view)
         }
     }
+
+    public func updateWebViewFrame(frame: CGRect) {
+        self.webView.frame = frame;
+    }
     
-    public class InternalCapWebView: CAPWebView {
+    class InternalCapWebView: CAPWebView {
         var portal: Portal!
 
-        public init(frame: CGRect, portal: Portal) {
+        init(frame: CGRect, portal: Portal) {
             self.portal = portal
             super.init(frame: frame)
         }
         
-        public required init?(coder: NSCoder) {
+        required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         
-        override public func instanceDescriptor() -> InstanceDescriptor {
+        override func instanceDescriptor() -> InstanceDescriptor {
             let path = Bundle.main.url(forResource: self.portal.startDir, withExtension: nil)!
             let descriptor = InstanceDescriptor(at: path, configuration: nil, cordovaConfiguration: nil)
             return descriptor
         }
         
-        override public func loadInitialContext(_ userContentViewController: WKUserContentController) throws {
+        override func loadInitialContext(_ userContentViewController: WKUserContentController) throws {
     
             if(self.portal.initialContext != nil) {
                 let jsonData = try JSONSerialization.data(withJSONObject: self.portal.initialContext ?? "")
