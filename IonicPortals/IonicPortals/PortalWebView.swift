@@ -37,22 +37,22 @@ import Capacitor
     public class InternalCapWebView: CAPWebView {
         var portal: Portal!
 
-        init(frame: CGRect, portal: Portal) {
+        public init(frame: CGRect, portal: Portal) {
             self.portal = portal
             super.init(frame: frame)
         }
         
-        required init?(coder: NSCoder) {
+        public required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         
-        override func instanceDescriptor() -> InstanceDescriptor {
+        override public func instanceDescriptor() -> InstanceDescriptor {
             let path = Bundle.main.url(forResource: self.portal.startDir, withExtension: nil)!
             let descriptor = InstanceDescriptor(at: path, configuration: nil, cordovaConfiguration: nil)
             return descriptor
         }
         
-        override func loadInitialContext(_ userContentViewController: WKUserContentController) throws {
+        override public func loadInitialContext(_ userContentViewController: WKUserContentController) throws {
     
             if(self.portal.initialContext != nil) {
                 let jsonData = try JSONSerialization.data(withJSONObject: self.portal.initialContext ?? "")
