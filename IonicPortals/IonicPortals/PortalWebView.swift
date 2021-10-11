@@ -34,7 +34,7 @@ import Capacitor
         }
     }
     
-    class InternalCapWebView: CAPWebView {
+    public class InternalCapWebView: CAPWebView {
         var portal: Portal!
 
         init(frame: CGRect, portal: Portal) {
