@@ -34,7 +34,7 @@ import Capacitor
         }
     }
 
-    public func updateWebViewFrame(frame: CGRect) {
+    public func updateWebView(frame: CGRect) {
         self.webView!.frame = frame;
     }
     
