@@ -5,7 +5,7 @@ import Capacitor
 
 @objcMembers public class PortalWebView: UIView {
     
-    var webView: InternalCapWebView?
+    public var webView: InternalCapWebView?
     var portal: Portal?
     public var bridge: CAPBridgeProtocol?
     
