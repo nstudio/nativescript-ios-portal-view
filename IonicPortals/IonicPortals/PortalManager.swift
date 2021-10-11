@@ -19,10 +19,6 @@ public class PortalManager: NSObject {
     private static var registeredError = false
     private static var unregisteredMessageShown = false
 
-    // Initialization
-
-    private init() {}
-
     /**
      * Returns the number of `Portal` objects in the `PortalManager`.
      * - returns: The count of `Portal` objects.
