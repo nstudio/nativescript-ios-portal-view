@@ -35,7 +35,7 @@ import Capacitor
     }
 
     public func updateWebViewFrame(frame: CGRect) {
-        self.webView.frame = frame;
+        self.webView!.frame = frame;
     }
     
     class InternalCapWebView: CAPWebView {
